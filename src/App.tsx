@@ -6,6 +6,7 @@ import LoginForm from './assets/LoginForm';
 import RegistrationForm from './assets/RegistrationForm';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import ProfileView from './assets/ProfileView';
+import CommentsView from './assets/CommentsView';
 
 
 function App() {
@@ -25,6 +26,7 @@ const Navigation = () => (
       <li><NavLink exact activeClassName="current" to='/register'>Register</NavLink></li>
       <li><NavLink exact activeClassName="current" to='/login'>Login</NavLink></li>
       <li><NavLink exact activeClassName="current" to='/profile'>My profile</NavLink></li>
+      <li><NavLink exact activeClassName="current" to='/comments'>Comments</NavLink></li>
     </ul>
   </nav>
 );
@@ -47,12 +49,16 @@ const Profile = () => (
   <ProfileView />
   );
 
+const Comments = () => (
+  <CommentsView />
+  );
 const Main = () => (
   <Switch>
     <Route exact path='/' component={Home}></Route>
     <Route exact path='/register' component={Register}></Route>
     <Route exact path='/login' component={Login}></Route>
     <Route exact path='/profile' component={Profile}></Route>
+    <Route exact path='/comments' component={Comments}></Route>
   </Switch>
 );
 
