@@ -1,9 +1,18 @@
 import React from 'react'
 import { useFormik } from 'formik'
+import { Grid, Link, makeStyles } from '@material-ui/core'
+import { CenterFocusWeakTwoTone } from '@material-ui/icons';
 const initialValues= {
     username: '',
-    password: ''
+    password: '',
+    remember: false
 }
+const useStyles = makeStyles({
+      link: {
+        textAlign: 'center',
+      },
+});
+
 const onSubmit= (values: any) => {console.log('formData', values)}
 const validate= (values: { username: any; password: any }) => {
     let errors: any = {}
@@ -23,6 +32,7 @@ function LoginForm() {
      })
         console.log('formValues', formik.values)
         console.log('formErrors', formik.errors)
+        const classes = useStyles();
     return (
         <div className="form-style-3">
             <form onSubmit={formik.handleSubmit}>
@@ -38,9 +48,20 @@ function LoginForm() {
                 {formik.errors.password ? <div className="errors">{formik.errors.password}</div> : null}
                 <br />
                 </div>
+                <div className='form-control'>
+                <label  htmlFor='remember'>Remember me</label>
+                <input type="checkbox" id='checkbox' name='remember' onChange={formik.handleChange} />
+                <br />
+                </div>
                 <button type="submit">Submit</button>
 
             </form>
+
+
+              <Link href="/register" className={classes.link}>
+                Don't have account? Register now!
+              </Link>
+
         </div>
     )
 }

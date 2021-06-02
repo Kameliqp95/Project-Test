@@ -35,7 +35,11 @@ const Navigation = () => (
 
 const Home = () => (
   <div className='home'>
-    <h1>Hello!</h1>
+    <h1>Welcome in my Blog!
+    </h1>
+    <p>
+      Hi! This is my own Blog! Enjoy it!
+    </p>
   </div>
 );
 
