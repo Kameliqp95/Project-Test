@@ -1,12 +1,16 @@
 import React from 'react'
 import { useFormik } from 'formik'
-import { Button, Grid, Input, Link, makeStyles } from '@material-ui/core'
+import { Button, Checkbox, createMuiTheme, Grid, Input, Link, makeStyles, TextField, ThemeProvider } from '@material-ui/core'
 import { CenterFocusWeakTwoTone } from '@material-ui/icons';
 const initialValues= {
     username: '',
     password: '',
     remember: false
 }
+
+const theme = createMuiTheme({
+
+});
 const useStyles = makeStyles({
       link: {
         textAlign: 'center',
@@ -48,34 +52,59 @@ function LoginForm() {
               display: 'none',
             },
           });
+
     return (
+      
         <div className="form-style-3">
             <form onSubmit={formik.handleSubmit} autoComplete="off">
             <div className='form-control'>
 
+            <ThemeProvider theme={theme}>
+        <TextField
+         
+          label="Username"
+          variant="outlined"
+          id="mui-theme-provider-outlined-input"
+          name='username' 
+          type="text"
+          onChange={formik.handleChange} 
+          value={formik.values.username}
+        />
+  <br />
+  {formik.errors.username ? <div className="errors">{formik.errors.username}</div> : null}
+  <br />
 
-                <label  htmlFor='username'>Username:</label>
-                <Input type="text" id='username' name='username' onChange={formik.handleChange} value={formik.values.username} placeholder="Username" inputProps={{ 'aria-label': 'description' }} />
-                {formik.errors.username ? <div className="errors">{formik.errors.username}</div> : null}
-                <br />
-                </div>
-                <div className='form-control'>
-                <label  htmlFor='password'>Password:</label>
-                <Input type="text" id='password' name='password' onChange={formik.handleChange} value={formik.values.password} placeholder="Password" inputProps={{ 'aria-label': 'description' }} />
-                {formik.errors.password ? <div className="errors">{formik.errors.password}</div> : null}
-                <br />
-                </div>
+        <TextField
+         
+          label="Password"
+          variant="outlined"
+          id="mui-theme-provider-outlined-input"
+          name='password' 
+          type="password"
+          onChange={formik.handleChange} 
+          value={formik.values.password}
+        />
+  <br />
+  {formik.errors.password ? <div className="errors">{formik.errors.password}</div> : null}
+  <br />
+
+  </ThemeProvider>
                 <div className='form-control'>
                 <label  htmlFor='remember'>Remember me</label>
                 
-                <input type="checkbox" id='checkbox' name='remember' onChange={formik.handleChange} />
-                <br />
+                <Checkbox
+                id='checkbox' 
+                name='remember' 
+                onChange={formik.handleChange}
+        inputProps={{ 'aria-label': 'primary checkbox' }}
+      />
+
                 </div>
 
                 <Button type="submit" variant="contained" color="primary" className={classes.button}>
                 Submit
                 </Button>
-
+</div>
             </form>
 
 

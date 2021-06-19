@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik'
+import { Button, createMuiTheme, FormControl, Input, InputLabel, TextField, ThemeProvider } from '@material-ui/core'
 const initialValues= {
     username: '',
     password: '',
@@ -8,6 +9,9 @@ const initialValues= {
     city: '',
     address: ''
 }
+const theme = createMuiTheme({
+
+  });
 const onSubmit= (values: any) => {console.log('formData', values)}
 const validate= (values: { username: any; password: any; firstName: any; lastName: any; city: any; address: any }) => {
     let errors: any = {}
@@ -42,43 +46,93 @@ function RegistrationForm() {
     return (
         <div className="form-style-3">
              <form onSubmit={formik.handleSubmit}>
-                <div className='form-control'>
-                <label  htmlFor='username'>Username</label>
-                <input type="text" id='username' name='username' onChange={formik.handleChange} value={formik.values.username} />
-                {formik.errors.username ? <div className="errors">{formik.errors.username}</div> : null}
-                <br />
-                </div>
-                <div className='form-control'>
-                <label  htmlFor='password'>Password</label>
-                <input type="password" id='password' name='password' onChange={formik.handleChange} value={formik.values.password} />
-                {formik.errors.password ? <div className="errors">{formik.errors.password}</div> : null}
-                <br />
-                </div>
-                <div className='form-control'>
-                <label  htmlFor='firstName'>firstName</label>
-                <input type="text" id='firstName' name='firstName' onChange={formik.handleChange} value={formik.values.firstName} />
-                {formik.errors.firstName ? <div className="errors">{formik.errors.firstName}</div> : null}
-                <br />
-                </div>
-                <div className='form-control'>
-                <label  htmlFor='lastName'>lastName</label>
-                <input type="text" id='lastName' name='lastName' onChange={formik.handleChange} value={formik.values.lastName} />
-                {formik.errors.lastName ? <div className="errors">{formik.errors.lastName}</div> : null}
-                <br />
-                </div>
-                <div className='form-control'>
-                <label  htmlFor='city'>city</label>
-                <input type="text" id='city' name='city' onChange={formik.handleChange} value={formik.values.city} />
-                {formik.errors.city ? <div className="errors">{formik.errors.city}</div> : null}
-                <br />
-                </div>
-                <div className='form-control'>
-                <label  htmlFor='address'>address</label>
-                <input type="text" id='address' name='address' onChange={formik.handleChange} value={formik.values.address} />
-                {formik.errors.address ? <div className="errors">{formik.errors.address}</div> : null}
-                <br />
-                </div>
-                <button type="submit">Submit</button>
+
+             <ThemeProvider theme={theme}>
+        <TextField
+         
+          label="Username"
+          variant="outlined"
+          id="mui-theme-provider-outlined-input"
+          name='username' 
+          type="text"
+          onChange={formik.handleChange} 
+          value={formik.values.username}
+        />
+  <br />
+  {formik.errors.username ? <div className="errors">{formik.errors.username}</div> : null}
+  <br />
+      <TextField
+         
+         label="Password"
+         variant="outlined"
+         id="mui-theme-provider-outlined-input"
+         name='password' 
+         type="password"
+         onChange={formik.handleChange} 
+         value={formik.values.password}
+       />
+  <br />
+  {formik.errors.password ? <div className="errors">{formik.errors.password}</div> : null}
+  <br />
+<TextField
+         
+         label="First Name"
+         variant="outlined"
+         id="mui-theme-provider-outlined-input"
+         name='firstName' 
+         type="First Name"
+         onChange={formik.handleChange} 
+         value={formik.values.firstName}
+       />
+  <br />
+  {formik.errors.firstName ? <div className="errors">{formik.errors.firstName}</div> : null}
+  <br />
+<TextField
+         
+         label="Last Name"
+         variant="outlined"
+         id="mui-theme-provider-outlined-input"
+         name='lastName' 
+         type="Last Name"
+         onChange={formik.handleChange} 
+         value={formik.values.lastName}
+       />
+  <br />
+  {formik.errors.lastName ? <div className="errors">{formik.errors.lastName}</div> : null}
+  <br />
+
+<TextField
+         
+         label="City"
+         variant="outlined"
+         id="mui-theme-provider-outlined-input"
+         name='city' 
+         type="City"
+         onChange={formik.handleChange} 
+         value={formik.values.city}
+       />
+  <br />
+  {formik.errors.city ? <div className="errors">{formik.errors.city}</div> : null}
+  <br />
+<TextField
+         
+         label="Address"
+         variant="outlined"
+         id="mui-theme-provider-outlined-input"
+         name='address' 
+         type="Address"
+         onChange={formik.handleChange} 
+         value={formik.values.address}
+       />
+  <br />
+  {formik.errors.address ? <div className="errors">{formik.errors.address}</div> : null}
+  <br />
+     </ThemeProvider>
+
+
+                <Button type="submit" variant="contained" color="primary" >
+                Submit
+                </Button>
 
             </form>
         </div>

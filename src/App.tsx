@@ -8,6 +8,7 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import ProfileView from './assets/ProfileView';
 import CommentsView from './assets/CommentsView';
 import TableView from './assets/TableView';
+import MapsView from './assets/MapsView';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ const Navigation = () => (
       <li><NavLink exact activeClassName="current" to='/profile'>My profile</NavLink></li>
       <li><NavLink exact activeClassName="current" to='/comments'>Comments</NavLink></li>
       <li><NavLink exact activeClassName="current" to='/table'>Table</NavLink></li>
-
+      <li><NavLink exact activeClassName="current" to='/maps'>Maps</NavLink></li>
     </ul>
   </nav>
 );
@@ -62,6 +63,11 @@ const Comments = () => (
   const Table = () => (
     <TableView />
     );
+
+    const Maps = () => (
+      <MapsView />
+      );
+    
 const Main = () => (
   <Switch>
     <Route exact path='/' component={Home}></Route>
@@ -70,6 +76,7 @@ const Main = () => (
     <Route exact path='/profile' component={Profile}></Route>
     <Route exact path='/comments' component={Comments}></Route>
     <Route exact path='/table' component={Table}></Route>
+    <Route exact path='/maps' component={Maps}></Route>
   </Switch>
 );
 
