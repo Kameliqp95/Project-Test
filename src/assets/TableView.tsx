@@ -7,55 +7,59 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Edit from '@material-ui/icons/Edit';
+import { Delete } from '@material-ui/icons';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles({
-    root: {
-        width: '100%',
-      },
-      paper: {
-        width: '100%',
-      },
-      table: {
-        minWidth: 750,
-      },
-      visuallyHidden: {
-        border: 0,
-        clip: 'rect(0 0 0 0)',
-        height: 1,
-        margin: -1,
-        overflow: 'hidden',
-        padding: 0,
-        position: 'absolute',
-        top: 20,
-        width: 1,
-      },
+  root: {
+    width: '100%',
+  },
+  paper: {
+    width: '100%',
+  },
+  table: {
+    minWidth: 750,
+  },
+  visuallyHidden: {
+    border: 0,
+    clip: 'rect(0 0 0 0)',
+    height: 1,
+    margin: -1,
+    overflow: 'hidden',
+    padding: 0,
+    position: 'absolute',
+    top: 20,
+    width: 1,
+  },
 });
 
-function createData(firstname: string, lastname: string, email: string, comment: string, nickname: string) {
-  return { firstname, lastname, email, comment, nickname };
+function createData(firstname: string, lastname: string, email: string, comment: string, nickname: string, action: any,) {
+  return { firstname, lastname, email, comment, nickname, action };
 }
 
 const rows = [
-  createData('Kamelia', 'Pavlova', 'kamelip@abv.bg', 'comment', 'nickname'),
-  createData('Evgeni', 'Ivanov', 'eivanov@abv.bg', 'comment1', 'nickname1'),
-  createData('Georgi', 'Georgiev', 'ggeorgiev@gmail.com', 'comment2', 'nickname2'),
-  createData('Teodor', 'Todorov', 'ttodorov@gmail.com', 'comment3', 'nickname3'),
-  createData('Maria', 'Georgieva', 'mgeorgieva.abv.bg', 'comment4', 'nickname4'),
+  createData('Kamelia', 'Pavlova', 'kamelip@abv.bg', 'comment', 'nickname', <><Edit /> <Delete  /></>),
+  createData('Evgeni', 'Ivanov', 'eivanov@abv.bg', 'comment1', 'nickname1', <><Edit /> <Delete  /></>),
+  createData('Georgi', 'Georgiev', 'ggeorgiev@gmail.com', 'comment2', 'nickname2',  <><Edit /> <Delete  /></>),
+  createData('Teodor', 'Todorov', 'ttodorov@gmail.com', 'comment3', 'nickname3',  <><Edit /> <Delete  /></>),
+  createData('Maria', 'Georgieva', 'mgeorgieva.abv.bg', 'comment4', 'nickname4',  <><Edit /> <Delete  /></>),
 ];
 
 export default function TableView() {
   const classes = useStyles();
-
+  const { t, i18n } = useTranslation();
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>First Name</TableCell>
-            <TableCell align="right">Last Name</TableCell>
-            <TableCell align="right">E-mail</TableCell>
-            <TableCell align="right">Comments</TableCell>
-            <TableCell align="right">Nickname</TableCell>
+            <TableCell>{t("First Name1")}</TableCell>
+            <TableCell align="right">{t("Last Name1")}</TableCell>
+            <TableCell align="right">{t("E-mail1")}</TableCell>
+            <TableCell align="right">{t("Comments")}</TableCell>
+            <TableCell align="right">{t("Nickname")}</TableCell>
+            <TableCell align="right">{t("Edit/Delete")}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -68,6 +72,7 @@ export default function TableView() {
               <TableCell align="right">{row.email}</TableCell>
               <TableCell align="right">{row.comment}</TableCell>
               <TableCell align="right">{row.nickname}</TableCell>
+              <TableCell align="right">{row.action}</TableCell>
             </TableRow>
           ))}
         </TableBody>

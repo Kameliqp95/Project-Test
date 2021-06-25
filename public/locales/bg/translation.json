@@ -1,0 +1,34 @@
+{
+    "Welcome to React": "Добре дошли!",
+    "Home": "Начало",
+    "Register": "Регистрация",
+    "Login": "Логин",
+    "My profile": "Профил",
+    "Comments": "Коментари",
+    "Table": "Таблица",
+    "Maps": "Карта",
+    "Username": "Потребителско име*",
+    "Password": "Парола*",
+    "First Name": "Име*",
+    "Last Name": "Фамилия*",
+    "E-mail": "Електронна поща*",
+    "City": "Град*",
+    "Address": "Адрес*",
+    "First Name1": "Име",
+    "Last Name1": "Фамилия",
+    "E-mail1": "Електронна поща",
+    "Submit": "Потвърди",
+    "Remember me": "Запомни ме",
+    "Don't have account? Register now!": "Нямате профил? Регистрирайте се сега!",
+    "Personal information": "Лична информация",
+    "My Picture": "Профилна снимка",
+    "Name": "Име",
+    "Add Comments": "Добави коментар",
+    "Send": "Изпрати",
+    "Cancel": "Затвори",
+    "Nickname": "Псевдоним",
+    "Edit/Delete": "Промени/Изтрии"
+    
+
+    
+  }
