@@ -40,6 +40,7 @@
 
 html {
   box-sizing: border-box;
+  font-size: 1rem;
 }
 
 *, *::before, *::after {
@@ -84,4 +85,25 @@ p {
 
 .current {
   border-bottom: 4px solid white;
+}
+
+.home {
+background-image: url('images/background.png');
+height: 100%;
+min-height: 600px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.login {
+  width: 350px;
+}
+
+.actions {
+  color: #000;
+}
+
+.font-size {
+  font-size: 18px;
 }
