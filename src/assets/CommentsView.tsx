@@ -1,16 +1,11 @@
-import React from 'react'
-import { useFormik } from 'formik'
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -54,10 +49,10 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     width: 50,
     height: 50,
-},
-width: {
-  width: '300px',
-},
+  },
+  width: {
+    width: '300px',
+  },
 }));
 
 
@@ -75,7 +70,7 @@ function CommentsView() {
           <div className={classes.name}>
             <Grid container spacing={1} alignItems="flex-end">
               <Grid item>
-              <Avatar alt="Ivan Petkov" src="https://lh3.googleusercontent.com/proxy/ON_6Wl5OOBIgjpY16q34DIsPt43kJjJH04y6ballrv1SKUPIO4LYOdbdq4Aio5GRUEt27Nt1uHOH7SmTObg0iB70l6utsENdJHz5uk9w0dORwA" className={classes.bigAvatar} />
+                <Avatar alt="Ivan Petkov" src="https://lh3.googleusercontent.com/proxy/ON_6Wl5OOBIgjpY16q34DIsPt43kJjJH04y6ballrv1SKUPIO4LYOdbdq4Aio5GRUEt27Nt1uHOH7SmTObg0iB70l6utsENdJHz5uk9w0dORwA" className={classes.bigAvatar} />
               </Grid>
               <Grid item>
                 <TextField id="input-with-icon-grid" label={t("Name")} />
@@ -97,11 +92,11 @@ function CommentsView() {
             />
           </div>
           <Grid container>
-          <Button variant="contained" color="primary" type="submit" className={classes.submit}>
-          {t("Send")}
+            <Button variant="contained" color="primary" type="submit" className={classes.submit}>
+              {t("Send")}
             </Button>
-          <Button variant="contained" color="secondary" className={classes.cancel}>
-          {t("Cancel")}
+            <Button variant="contained" color="secondary" className={classes.cancel}>
+              {t("Cancel")}
             </Button>
 
 

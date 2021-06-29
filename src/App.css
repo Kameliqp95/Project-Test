@@ -107,3 +107,17 @@ background-size: cover;
 .font-size {
   font-size: 18px;
 }
+
+.sign_in {
+  font-size: 26px;
+  color: #3f51b5;
+}
+
+.sign_in_lock {
+  color: #3f51b5;
+}
+
+.up {
+  margin-top: 20px;
+}
+

@@ -36,6 +36,7 @@
     "required address": "Моля въведете адрес",
     "required email": "Моля въведете електронна поща",
     "increase": "Увеличи",
-    "decrease": "Намали"
-    
-  }
+    "decrease": "Намали",
+    "Sign In": "Вписване",
+    "Sign Up": "Регистрация"
+}
