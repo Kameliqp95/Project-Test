@@ -16,7 +16,11 @@
     "Address": "Address*",
     "First Name1": "First Name1",
     "Last Name1": "Last Name1",
+<<<<<<< HEAD
     "E-mail1":  "E-mail1",
+=======
+    "E-mail1": "E-mail1",
+>>>>>>> fe73e3be52a48c55db9dec2d20d9e87fa884fc1e
     "Submit": "Submit",
     "Remember me": "Remember me",
     "Don't have account? Register now!": "Don't have account? Register now!",
@@ -27,9 +31,25 @@
     "Send": "Send",
     "Cancel": "Cancel",
     "Nickname": "Nickname",
+<<<<<<< HEAD
     "Edit/Delete": "Edit/Delete"
 
 
 
 }
   
+=======
+    "Edit/Delete": "Edit/Delete",
+    "required username": "Please write username",
+    "required password": "Please write password",
+    "required firstname": "Please write a firstname",
+    "required lastname": "Please write a lastname",
+    "required city": "Please write a city",
+    "required address": "Please write an address",
+    "required email": "Please write an e-mail",
+    "increase": "Increase",
+    "decrease": "Decrease",
+    "Sign In": "Sign In",
+    "Sign Up": "Sign Up"
+}
+>>>>>>> fe73e3be52a48c55db9dec2d20d9e87fa884fc1e

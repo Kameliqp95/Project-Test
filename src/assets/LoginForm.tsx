@@ -1,8 +1,8 @@
-import React from 'react'
 import { useFormik } from 'formik'
-import { Button, Checkbox, createMuiTheme, Grid, Input, Link, makeStyles, TextField, ThemeProvider } from '@material-ui/core'
-import { CenterFocusWeakTwoTone } from '@material-ui/icons';
+import { Button, Checkbox, createMuiTheme, Link, makeStyles, TextField } from '@material-ui/core'
 import { useTranslation } from 'react-i18next';
+import LockIcon from '@material-ui/icons/Lock';
+import '../App.css';
 const initialValues = {
   username: '',
   password: '',
@@ -23,19 +23,20 @@ const useStyles = makeStyles({
     margin: '5px',
   },
 });
-
-const onSubmit = (values: any) => { console.log('formData', values) }
-const validate = (values: { username: any; password: any }) => {
-  let errors: any = {}
-  if (!values.username) {
-    errors.username = 'requiered username'
-  }
-  if (!values.password) {
-    errors.password = 'requiered password'
-  }
-  return errors
-}
 function LoginForm() {
+  const onSubmit = (values: any) => { console.log('formData', values) }
+  const validate = (values: { username: string; password: string }) => {
+    let errors: any = {}
+    if (!values.username) {
+      errors.username = <h5>{t('required username')}</h5>
+    }
+    if (!values.password) {
+      errors.password = <h5>{t('required password')}</h5>
+    }
+    return errors
+  }
+
+  const { t, i18n } = useTranslation();
   const formik = useFormik({
     initialValues,
     onSubmit,
@@ -46,72 +47,70 @@ function LoginForm() {
   const classes = useStyles();
 
   const styles = (theme: { spacing: { unit: any; }; }) => ({
-    button: {
-      margin: theme.spacing.unit,
-    },
     input: {
       display: 'none',
-    },
+    }
   });
-  const { t, i18n } = useTranslation();
+
   return (
 
     <div className="form-style-3">
+      <LockIcon className="sign_in_lock" />
+      <span className="sign_in" >{t("Sign In")}</span>
       <form onSubmit={formik.handleSubmit} autoComplete="off">
-        <div className='form-control'>
+        <div className='form-control up'>
 
-          <ThemeProvider theme={theme}>
-            <TextField
+          <TextField
 
-              label={t("Username")}
-              variant="outlined"
-              id="mui-theme-provider-outlined-input"
-              name='username'
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.username}
-            />
-            <br />
-            {formik.errors.username ? <div className="errors">{formik.errors.username}</div> : null}
-            <br />
+            label={t("Username")}
+            variant="outlined"
+            id="mui-theme-provider-outlined-input"
+            name='username'
+            type="text"
+            className="login"
+            onChange={formik.handleChange}
+            value={formik.values.username}
+          />
+          <br />
+          {formik.errors.username ? <div className="errors">{formik.errors.username}</div> : null}
+          <br />
 
-            <TextField
+          <TextField
 
-              label={t("Password")}
-              variant="outlined"
-              id="mui-theme-provider-outlined-input"
-              name='password'
-              type="password"
-              onChange={formik.handleChange}
-              value={formik.values.password}
-            />
-            <br />
-            {formik.errors.password ? <div className="errors">{formik.errors.password}</div> : null}
-            <br />
+            label={t("Password")}
+            variant="outlined"
+            id="mui-theme-provider-outlined-input"
+            name='password'
+            type="password"
+            className="login"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+          />
+          <br />
+          {formik.errors.password ? <div className="errors">{formik.errors.password}</div> : null}
+          <br />
 
-          </ThemeProvider>
-          <div className='form-control'>
-            <label htmlFor='remember'>{t("Remember me")}</label>
-
+          <div className='form-control remember'>
             <Checkbox
               id='checkbox'
               name='remember'
               onChange={formik.handleChange}
               inputProps={{ 'aria-label': 'primary checkbox' }}
             />
+            <label htmlFor='remember'>{t("Remember me")}</label>
 
           </div>
 
-          <Button type="submit" variant="contained" color="primary" className={classes.button}>
-          {t("Submit")}
-                </Button>
+          <Button type="submit" className="buttons_size" variant="contained" color="primary" >
+            {t("Submit")}
+          </Button>
         </div>
       </form>
 
 
       <Link href="/register" className={classes.link}>
-      {t("Don't have account? Register now!")}
-              </Link>
+        {t("Don't have account? Register now!")}
+      </Link>
 
     </div>
   )
