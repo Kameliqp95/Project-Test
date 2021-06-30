@@ -1,12 +1,11 @@
-import React from 'react'
-import { useFormik } from 'formik'
-import { makeStyles, createStyles, Theme, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme, createMuiTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Avatar, TextField } from '@material-ui/core';
 import Edit from '@material-ui/icons/Edit';
 import { Delete } from '@material-ui/icons';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 function ProfileView() {
     const useStyles = makeStyles((theme: Theme) =>
@@ -54,8 +53,8 @@ function ProfileView() {
                         alignItems="center">
                         <Grid item xs container direction="column" spacing={2}>
                             <Grid item xs >
-                            {t("My Picture")}
-                <Grid item xs={9} sm container direction="row"
+                                <span className="font-size">{t("My Picture")}</span>
+                                <Grid item xs={9} sm container direction="row"
                                     justify="center"
                                     alignItems="center">
                                     <Grid item xs={6}>
@@ -64,7 +63,8 @@ function ProfileView() {
                                         <Grid container justify="center" alignItems="center">
                                             <Avatar alt="Ivan Petkov" src="https://lh3.googleusercontent.com/proxy/ON_6Wl5OOBIgjpY16q34DIsPt43kJjJH04y6ballrv1SKUPIO4LYOdbdq4Aio5GRUEt27Nt1uHOH7SmTObg0iB70l6utsENdJHz5uk9w0dORwA" className={classes.bigAvatar} />
                                         </Grid>
-                                        <Edit className={classes.icon} /> <Delete className={classes.icon} />
+                                        <NavLink className="actions" to='#'><Edit className={classes.icon} /></NavLink>
+                                        <NavLink className="actions" to='#'><Delete className={classes.icon} /></NavLink>
                                     </Grid>
                                 </Grid>
 
@@ -77,25 +77,23 @@ function ProfileView() {
                         alignItems="center">
                         <Grid item xs container direction="column" spacing={2}>
                             <Grid item xs >
-                            {t("Personal information")}
-                <Grid item xs={9} sm container direction="row"
+                                <span className="font-size">{t("Personal information")}</span>
+                                <Grid item xs={9} sm container direction="row"
                                     justify="center"
                                     alignItems="center">
                                     <Grid item xs={3}>
 
 
-                                        <ThemeProvider theme={theme}>
-                                            <TextField
+                                        <TextField
 
-                                                label={t("First Name")}
-                                                variant="outlined"
-                                                id="mui-theme-provider-outlined-input"
-                                                name='firstName'
-                                                type="text"
-                                                className={classes.margin}
-                                            />
+                                            label={t("First Name")}
+                                            variant="outlined"
+                                            id="mui-theme-provider-outlined-input"
+                                            name='firstName'
+                                            type="text"
+                                            className={classes.margin}
+                                        />
 
-                                        </ThemeProvider>
                                     </Grid>
                                     <Grid item xs={3}>
 
@@ -168,7 +166,3 @@ function ProfileView() {
 }
 
 export default ProfileView
-
-function useStyles() {
-    throw new Error('Function not implemented.');
-}
